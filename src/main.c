@@ -1,94 +1,25 @@
 #include "tree.h"
+#include "slide37.c"
+#include "slide38.c"
 
 int main(){
-	int reg[] = {5,3,7,2,4,6,1};
-	Tree *raiz = CreateTree();
-	Tree *aux = CreateTree();
-	Record r;
+	int opc;
+	printf("Informe a opcao que deseja: /n");
+	printf("1-slide27 \n 2-slide38");
+	scanf("%d", &opc);
 
-	printf("ELEMENTOS DA ARVORE: { ");
-  	for(int i=0; i< 7; i++){
-		r.key = reg[i];
-		r.value = 1;
-		insertTree(&raiz, r);
-    printf("%d ", reg[i]);
-	}
-  	printf("}\n\n");
-
-	printf("METODO PREORDEM: { ");
-  	preordem(raiz);
-  	printf("}\n\n");
-
-
-  	printf("METODO CENTRAL: { ");
-  	central(raiz);
-	printf("}\n\n");
-
-  	printf("METODO POSORDEM: { ");
-  	posordem(raiz);
-  	printf("}\n\n");
-
-
-	r.key = 2;
-	pesquisa(&raiz, &aux, r);
+	switch(opc)
+	{
+	case 1:
+		slide37();
+		break;
 	
-	printf("PESQUISA 2 E IMPRIME A SUBARVORE { ");
-	central(aux);
-	printf("}\n\n");
+	case 2:
+		slide38();
+		break;
 
-
-//slide 37
-/*
-	r.key = 23;
-	removeTree(&raiz, r);
-
-	printf("REMOVE 23 E IMPRIME A ARVORE { ");
-	central(raiz);
-	printf("}\n\n");
-
-	preordem(raiz);
-  	printf("}\n\n");
-
-	posordem(raiz);
-  	printf("}\n\n");
-
-	r.key = 11;
-	removeTree(&raiz, r);
-
-	printf("REMOVE 11 E IMPRIME A ARVORE { ");
-	central(raiz);
-	printf("}\n\n");
-
-	preordem(raiz);
-  	printf("}\n\n");
-
-	posordem(raiz);
-  	printf("}\n\n");
-
-	r.key = 12;
-	removeTree(&raiz, r);
-
-	printf("REMOVE 12 E IMPRIME A ARVORE { ");
-	central(raiz);
-	printf("}\n\n");
-
-	preordem(raiz);
-  	printf("}\n\n");
-
-	posordem(raiz);
-  	printf("}\n\n");
-
-	r.key = 8;
-	removeTree(&raiz, r);
-
-	printf("REMOVE 8 E IMPRIME A ARVORE { ");
-	central(raiz);
-	printf("}\n\n");
-
-	preordem(raiz);
-  	printf("}\n\n");
-
-	posordem(raiz);
-  	printf("}\n\n");
-*/
+	default:
+		break;
+	}
+	
 }
