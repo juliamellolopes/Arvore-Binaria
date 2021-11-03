@@ -1,67 +1,68 @@
 #include "tree.h"
 
-int main() {
-
-	system("clear");
-
-	Tree *raiz;
+int main(){
+	int reg[] = {5,3,7,2,4,6,1};
+	Tree *raiz = CreateTree();
+	Tree *aux = CreateTree();
 	Record r;
-	int tam;
 
-	// char *a, *b;
-	// a = "ava";
-	// b = "ava";
-
-	// int ret;
-
-	// ret = memcmp(a, b, 5);
-
-	// if(ret > 0)
-	// 	printf("%s é maior do que %s\n", a, b);
-	// else if(ret < 0)
-	// 	printf("%s é menor do que %s\n", a, b);
-	// else
-	// 	printf("%s é igual a %s\n", a, b);
-
-	char nome [13][20] = {
-		"banana", "abacate", "abacaxi", "leite", "manteiga", "cenoura",
-		"macarrao", "arroz", "feijao", "limao", "televisao", "computador", "celular"};
-	
-	raiz = createTree();
-
-	// int vetor[] = {12, 7, 13, 23, 11, 3, 4, 8, 10, 99, 1, 17, 9};
-	// tam = sizeof(vetor)/sizeof(vetor[0]);
-	tam = sizeof(nome)/sizeof(nome[0]);
-
-	Tree *aux;
-
-	printf("ELEMENTOS ARVORE: {\n");
-	for(int i=0; i < tam; i++) {
-		r.key = i;
-		r.palavra = nome[i];
-		printf("%d ", r.key);
-		printf("%s\n", r.palavra);
-		insertItem(&raiz, r);
+	printf("ELEMENTOS DA ARVORE: { ");
+  	for(int i=0; i< 7; i++){
+		r.key = reg[i];
+		r.value = 1;
+		insertTree(&raiz, r);
+    printf("%d ", reg[i]);
 	}
+  	printf("}\n\n");
+
+	printf("METODO PREORDEM: { ");
+  	preordem(raiz);
+  	printf("}\n\n");
+
+
+  	printf("METODO CENTRAL: { ");
+  	central(raiz);
 	printf("}\n\n");
-	
-	printf("PRE ORDEN: {\n");
-	preordem(raiz);
-	
-	printf("}\n\nCENTRAL: {\n");
-	central(raiz);
-	
-	printf("}\n\nPOS ORDEN: {\n");
-	posordem(raiz);
 
-	char str[20] = "abacate";
-	r.palavra = str;
+  	printf("METODO POSORDEM: { ");
+  	posordem(raiz);
+  	printf("}\n\n");
+
+
+	r.key = 2;
 	pesquisa(&raiz, &aux, r);
-
-	printf("}\n\nCENTRAL: {\n");
+	
+	printf("PESQUISA 2 E IMPRIME A SUBARVORE { ");
 	central(aux);
+	printf("}\n\n");
+/////////////////////////////////////////////////
 
-	printf("}\n");
+	char reg[5][20] = {"arroz", "feijao", "macarrao", "frango", "ovo"};
+	Tree *raiz = CreateTree();
+  	Tree *aux = CreateTree();
+	Record r;
 
-	return EXIT_SUCCESS;
+  	printf("ELEMENTOS DA ARVORE: { ");
+  	for(int i = 0; i < 5; i++){
+		r.key = reg[i];
+		r.value = 1;
+		insertTree(&raiz, r);
+    printf("%d ", reg[i]);
+	}
+  	printf("}\n\n");
+
+	printf("IMPRIMIR METODO CENTRAL: { ");
+	central(raiz);
+	printf("}\n\n");
+
+  	printf("IMPRIMIR METODO PRE-ORDEM: { ");
+	preordem(raiz);
+  	printf("}\n\n");
+
+  	printf("IMPRIMIR METODO POS-ORDEM: { ");
+	posordem(raiz);
+  	printf("}\n\n");
+
+  	r.key = "arroz";
+	pesquisa(&raiz, &aux, r);
 }
