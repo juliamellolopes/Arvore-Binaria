@@ -9,7 +9,7 @@ typedef struct Tree Tree;
 
 struct Record{
 	int key;
-	int value;
+	char value;
 };
 
 struct Tree{

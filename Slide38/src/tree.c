@@ -28,15 +28,12 @@ void insertTree(Tree **t, Record r){
 
 void pesquisa(Tree **t, Tree **aux, Record r){
 
-  if(*t == NULL){
-    printf("[ERROR]: Node not found!");
-    return;
-  }
-
-  if((*t)->reg.key > r.key){ pesquisa(&(*t)->esq, aux, r); return;}
-  if((*t)->reg.key < r.key){ pesquisa(&(*t)->dir, aux, r); return;}
-
-  *aux = *t;
+  while((*t)->reg.key > r.key || (*t)->reg.key < r.key || (*t)->reg.key != NULL){
+        if((*t)->reg.key > r.key){pesquisa(&(*t)->esq, aux, r); return;}
+        if((*t)->reg.key < r.key){pesquisa(&(*t)->dir, aux, r); return;}
+    }
+    if(*t != NULL)
+        *aux = *t;
 }
 
 
