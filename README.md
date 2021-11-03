@@ -14,4 +14,4 @@ Na pasta slide37 esta o implementado o exercício do slide 37, que retira e impr
 
 ### Slide 38
 
-Na pasta slide 38 estã implementado uma arvore que pode ter 30 elementos, os tres tipos de impressão, como tambem o metodo de pesquisa que ultiliza menos RAM.
+Na pasta slide38 estã implementado uma arvore que pode ter 30 elementos, os tres tipos de impressão, como tambem o metodo de pesquisa que ultiliza menos RAM.
