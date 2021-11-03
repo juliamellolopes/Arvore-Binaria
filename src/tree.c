@@ -123,7 +123,7 @@ void slide37(){
 	Record r;
 
   printf("ELEMENTOS DA ARVORE: { ");
-  for(int i=0; i< 7; i++){
+  for(int i = 0; i < 13; i++){
 		r.key = reg[i];
 		r.value = 1;
 		insertTree(&raiz, r);
@@ -189,5 +189,36 @@ void slide37(){
 }
 
 void slide38(){
+  char reg[5] = {
+    "arroz", "feijao", "macarrao", "frango", "ovo"};
+	Tree *raiz = CreateTree();
+  Tree *aux = CreateTree();
+	Record r;
 
+  printf("ELEMENTOS DA ARVORE: { ");
+  for(int i = 0; i < 5; i++){
+		r.key = reg[i];
+		r.value = 1;
+		insertTree(&raiz, r);
+    printf("%d ", reg[i]);
+	}
+  printf("}\n\n");
+
+	printf("IMPRIMIR METODO CENTRAL: { ");
+	central(raiz);
+	printf("}\n\n");
+
+  printf("IMPRIMIR METODO PRE-ORDEM: { ");
+	preordem(raiz);
+  printf("}\n\n");
+
+  printf("IMPRIMIR METODO POS-ORDEM: { ");
+	posordem(raiz);
+  printf("}\n\n");
+
+  r.key = "arroz";
+	pesquisa(&raiz, &aux, r);
+  printf("%s", aux);
+
+  
 }
