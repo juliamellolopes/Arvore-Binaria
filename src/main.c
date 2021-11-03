@@ -1,10 +1,9 @@
 #include "tree.h"
-#include "slide37.c"
-#include "slide38.c"
 
 int main(){
+
 	int opc;
-	printf("Informe a opcao que deseja: /n");
+	printf("Informe a opcao que deseja: \n");
 	printf("1-slide27 \n 2-slide38");
 	scanf("%d", &opc);
 
@@ -15,11 +14,10 @@ int main(){
 		break;
 	
 	case 2:
-		slide38();
+		//slide38();
 		break;
 
 	default:
 		break;
 	}
-	
 }

@@ -29,5 +29,7 @@ void preordem(Tree *t);
 void central(Tree *t);
 void posordem(Tree *t);
 
+void slide37();
+void slide38();
 
 #endif
