@@ -189,8 +189,7 @@ void slide37(){
 }
 
 void slide38(){
-  char reg[5] = {
-    "arroz", "feijao", "macarrao", "frango", "ovo"};
+  char reg[5][20] = {"arroz", "feijao", "macarrao", "frango", "ovo"};
 	Tree *raiz = CreateTree();
   Tree *aux = CreateTree();
 	Record r;
@@ -218,7 +217,6 @@ void slide38(){
 
   r.key = "arroz";
 	pesquisa(&raiz, &aux, r);
-  printf("%s", aux);
 
   
 }
