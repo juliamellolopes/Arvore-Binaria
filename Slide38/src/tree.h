@@ -30,4 +30,6 @@ void preordem(Tree *t);
 void central(Tree *t);
 void posordem(Tree *t);
 
+void pesquisaRAM(Tree **t, Tree **aux, Record r);
+
 #endif

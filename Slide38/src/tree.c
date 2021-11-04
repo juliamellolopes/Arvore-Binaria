@@ -119,3 +119,13 @@ void posordem(Tree *t)
     printf("%s ", t->reg.value);
   }
 }
+
+
+void pesquisaRAM(Tree **t, Tree **aux, Record r){
+  int read = memcmp((*t)->reg.value, r.value, 10);
+  while(){
+    if(read < 0){ pesquisa(&(*t)->esq, aux, r); return;}
+    if(read > 0){ pesquisa(&(*t)->dir, aux, r); return;}
+  }
+  *aux = *t;
+}
