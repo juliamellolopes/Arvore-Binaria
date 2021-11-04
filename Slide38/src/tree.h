@@ -3,13 +3,14 @@
 
 #include<stdio.h>
 #include<stdlib.h>
+#include<string.h>
 
 typedef struct Record Record;
 typedef struct Tree Tree;
 
 struct Record{
 	int key;
-	char value;
+	char *value;
 };
 
 struct Tree{
@@ -19,7 +20,7 @@ struct Tree{
 
 Tree* CreateTree();
 void insertTree(Tree **t, Record r);
-void pesquisa(Tree **t, Tree **aux, Record r);
+void pesquisa(Tree **t, Tree **aux, Record r, int *quant);
 int isInTree(Tree *t, Record r);
 
 void removeTree(Tree **t, Record r);

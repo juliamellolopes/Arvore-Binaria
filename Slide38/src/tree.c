@@ -13,12 +13,13 @@ void insertTree(Tree **t, Record r){
     (*t)->reg = r; 
   
   } else {
-    
-    if(r.key < (*t)->reg.key){
+    int read = memcmp((*t)->reg.value, r.value, 10);
+
+    if(read < 0){
       insertTree(&(*t)->esq, r);
     }
     
-    if(r.key > (*t)->reg.key){
+    if(read > 0){
       insertTree(&(*t)->dir, r);
     }
   
@@ -26,16 +27,21 @@ void insertTree(Tree **t, Record r){
 
 }
 
-void pesquisa(Tree **t, Tree **aux, Record r){
+void pesquisa(Tree **t, Tree **aux, Record r, int *quant){
 
-  while((*t)->reg.key > r.key || (*t)->reg.key < r.key || (*t)->reg.key != NULL){
-        if((*t)->reg.key > r.key){pesquisa(&(*t)->esq, aux, r); return;}
-        if((*t)->reg.key < r.key){pesquisa(&(*t)->dir, aux, r); return;}
-    }
-    if(*t != NULL)
-        *aux = *t;
+  if(*t == NULL){
+    printf("[ERROR]: Node %s not found!\n", r.value);
+    return;
+  }
+  (*quant)++;
+
+  int read = memcmp((*t)->reg.value, r.value, 10);
+
+  if(read < 0){ pesquisa(&(*t)->esq, aux, r, quant); return;}
+  if(read > 0){ pesquisa(&(*t)->dir, aux, r, quant); return;}
+
+  *aux = *t;
 }
-
 
 int isInTree(Tree *t, Record r) {
   
@@ -89,7 +95,7 @@ void removeTree(Tree **t, Record r){
 void preordem(Tree *t)
 {
   if(!(t == NULL)){
-    printf("%d ", t->reg.key);
+    printf("%s ", t->reg.value);
     preordem(t->esq); 
     preordem(t->dir); 
   }
@@ -100,7 +106,7 @@ void central(Tree *t)
 {
   if(!(t == NULL)){
     central(t->esq); 
-    printf("%d ", t->reg.key);
+    printf("%s ", t->reg.value);
     central(t->dir); 
   }
 }
@@ -110,6 +116,6 @@ void posordem(Tree *t)
   if(!(t == NULL)){
     posordem(t->esq); 
     posordem(t->dir); 
-    printf("%d ", t->reg.key);
+    printf("%s ", t->reg.value);
   }
 }

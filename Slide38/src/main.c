@@ -1,53 +1,22 @@
 #include "tree.h"
 
 int main(){
-	int reg[] = {5,3,7,2,4,6,1};
-	Tree *raiz = CreateTree();
-	Tree *aux = CreateTree();
-	Record r;
 
-	printf("ELEMENTOS DA ARVORE: { ");
-  	for(int i=0; i< 7; i++){
-		r.key = reg[i];
-		r.value = 1;
-		insertTree(&raiz, r);
-    printf("%d ", reg[i]);
-	}
-  	printf("}\n\n");
+	char reg[30][10] = {"arroz", "feijao", "macarrao", "frango", "ovo", "miojo", "suco", "leite", "amendoin",
+	"biscoito", "toddy", "alface", "tomate", "cebola", "chips", "agua", "milho", "alho", "saumao", "chocolate",
+	"farinha", "carne", "molho", "lasanha", "fricasse", "refri", "espumante", "massa", "batata", "couve"};
 
-	printf("METODO PREORDEM: { ");
-  	preordem(raiz);
-  	printf("}\n\n");
-
-
-  	printf("METODO CENTRAL: { ");
-  	central(raiz);
-	printf("}\n\n");
-
-  	printf("METODO POSORDEM: { ");
-  	posordem(raiz);
-  	printf("}\n\n");
-
-
-	r.key = 2;
-	pesquisa(&raiz, &aux, r);
-	
-	printf("PESQUISA 2 E IMPRIME A SUBARVORE { ");
-	central(aux);
-	printf("}\n\n");
-/////////////////////////////////////////////////
-
-	char reg[5][20] = {"arroz", "feijao", "macarrao", "frango", "ovo"};
 	Tree *raiz = CreateTree();
   	Tree *aux = CreateTree();
 	Record r;
+	int quant = 0, quantVet = 0;
 
   	printf("ELEMENTOS DA ARVORE: { ");
-  	for(int i = 0; i < 5; i++){
-		r.key = reg[i];
-		r.value = 1;
+  	for(int i = 0; i < 30; i++){
+		r.key = i;
+		r.value = reg[i];
 		insertTree(&raiz, r);
-    printf("%d ", reg[i]);
+    	printf("%s ", reg[i]);
 	}
   	printf("}\n\n");
 
@@ -63,6 +32,23 @@ int main(){
 	posordem(raiz);
   	printf("}\n\n");
 
-  	r.key = "arroz";
-	pesquisa(&raiz, &aux, r);
+  	char str[10][10] = {"arroz","leite","brinquedo", "carne", "cadeira", "mesa", "ovo", "massa", "couve","cebola"};
+
+	for(int i = 0; i < 10; i++){
+		r.value = str[i];
+		pesquisa(&raiz, &aux, r, &quant);
+	}
+
+	for (int i = 0; i < 10; i++){
+		for(int j = 0; j <  30; j++){
+			quantVet++;
+			if(strcmp(reg[j], str[i]) == 0){
+				break;
+			}
+		}
+	}
+	
+	printf("Quantidade de pesquisa na arvore: %d\n", quant);
+	printf("Quantidade de pesquisa no vetor: %d\n", quantVet);
+
 }
